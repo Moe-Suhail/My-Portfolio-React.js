@@ -3,7 +3,7 @@ import { Avatar, Heading, VStack, Center } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 import avatarImage from "../images/m1.jpg";
 
-const greeting = "Hello, I am Mohammed! ";
+const greeting = "Hello, I am Mohammed!";
 const bio1 = "A web developer ⭐";
 const bio2 = "specialised in React-Js";
 
