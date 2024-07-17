@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -9,126 +9,143 @@ import {
   Heading,
   Input,
   Select,
+  Text,
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
-import {useAlertContext} from "../context/alertContext";
+import { useAlertContext } from "../context/alertContext";
 
 const LandingSection = () => {
-  const {isLoading, response, submit} = useSubmit();
+  const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      email: '',
-      type: 'hireMe',
-      comment:''
+      firstName: "",
+      email: "",
+      type: "hireMe",
+      comment: "",
     },
     onSubmit: (values) => {
-      submit('https://http://localhost:3000//contactme',values)
+      submit("https://http://localhost:3000//contactme", values);
     },
     validationSchema: Yup.object({
-      firstName: Yup.string()
-        .required('Required'),
-      email: Yup.string().email("Invalid email address").required('Required'),
-      comment:Yup.string().min(25,"Must be at least 25 characters").required('Required'),
+      firstName: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      comment: Yup.string()
+        .min(25, "Must be at least 25 characters")
+        .required("Required"),
     }),
   });
+
   useEffect(() => {
     if (response) {
-      onOpen(response.type, response.message); 
-      if (response.type === 'success') {
-        formik.resetForm()
+      onOpen(response.type, response.message);
+      if (response.type === "success") {
+        formik.resetForm();
       }
-  }
-},[response])
+    }
+  }, [response]);
 
   return (
     <FullScreenSection
       isDarkBackground
       backgroundColor="#656d4a"
-      py={16}
+      py={[12, 16]} // Responsive padding on small and large screens
       spacing={8}
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
-          Contact me
+      <VStack
+        maxW="1024px" // Set maximum width for the form container
+        mx="auto" // Center the form horizontally
+        p={[4, 8]} // Responsive padding on small and large screens
+        alignItems="flex-start"
+        color="black" // Set text color to black
+      >
+        <Heading as="h1" id="contactme-section" size="2xl" mb={8} color="white">
+          Contact me 📩
         </Heading>
-        <Box p={6} rounded="md" w="100%">
-          <form onSubmit={formik.handleSubmit}>
-            <VStack spacing={4}>
-              <FormControl isInvalid={!!formik.errors.firstName && formik.touched.firstName}>
+        <Box
+          p={6}
+          rounded="md"
+          w="100%"
+          bg="#a4ac86" // Background color changed to #a4ac86
+          boxShadow="lg"
+          borderWidth="1px"
+          borderColor="gray.200"
+        >
+          <form onSubmit={formik.handleSubmit} style={{ width: "100%" }}>
+            <VStack spacing={6}>
+              <FormControl
+                isInvalid={
+                  !!formik.errors.firstName && formik.touched.firstName
+                }
+                w="100%" // Ensure input takes full width
+              >
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
-                  sx={{
-                    _focus: {
-                      backgroundColor: "#a4ac86",
-                    },
-                  }}
                   id="firstName"
                   name="firstName"
-                  {...formik.getFieldProps('firstName')}
+                  {...formik.getFieldProps("firstName")}
+                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
                 />
-                <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
+                <FormErrorMessage>
+                  {formik.errors.firstName}
+                </FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={!!formik.errors.email && formik.touched.email}>
+              <FormControl
+                isInvalid={!!formik.errors.email && formik.touched.email}
+                w="100%" // Ensure input takes full width
+              >
                 <FormLabel htmlFor="email">Email Address</FormLabel>
-                <Input 
-                  sx={{
-                    _focus: {
-                      backgroundColor: "#a4ac86",
-                    },
-                  }}
+                <Input
                   id="email"
                   name="email"
                   type="email"
-                  {...formik.getFieldProps('email')}
+                  {...formik.getFieldProps("email")}
+                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
-              <FormControl>
+              <FormControl w="100%"> {/* Ensure select takes full width */}
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select 
-                  id="type" 
+                <Select
+                  id="type"
                   name="type"
-                  sx={{
-                    _focus: {
-                      backgroundColor: "#a4ac86",
-                    },
-                  }}
-                  {...formik.getFieldProps('type')}
+                  {...formik.getFieldProps("type")}
+                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
                 >
-                  <option value="hireMe" style={{ backgroundColor: "#414833", color: "white" }}>
-                    Freelance project proposal
-                  </option>
-                  <option value="openSource" style={{ backgroundColor: "#414833", color: "white" }}>
+                  <option value="hireMe">Freelance project proposal</option>
+                  <option value="openSource">
                     Open source consultancy session
                   </option>
-                  <option value="other" style={{ backgroundColor: "#414833", color: "white" }}>
-                    Other
-                  </option>
+                  <option value="other">Other</option>
                 </Select>
               </FormControl>
-              <FormControl isInvalid={!!formik.errors.comment && formik.touched.comment}>
-                <FormLabel htmlFor="comment">Your message</FormLabel>
+              <FormControl
+                isInvalid={!!formik.errors.comment && formik.touched.comment}
+                w="100%" // Ensure textarea takes full width
+              >
+                <FormLabel htmlFor="comment">Your message </FormLabel>
                 <Textarea
-                  sx={{
-                    _focus: {
-                      backgroundColor: "#a4ac86",
-                    },
-                  }}
                   id="comment"
                   name="comment"
                   height={250}
-                  {...formik.getFieldProps('comment')}
+                  {...formik.getFieldProps("comment")}
+                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
                 />
-                <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
+                <FormErrorMessage>
+                  {formik.errors.comment}
+                </FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="green" width="full" isLoading={isLoading}>
+              <Button
+                type="submit"
+                colorScheme="green"
+                width="full"
+                isLoading={isLoading}
+              >
                 Submit
               </Button>
             </VStack>
