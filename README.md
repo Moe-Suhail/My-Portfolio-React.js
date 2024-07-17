@@ -1,7 +1,7 @@
 # Portfolio Project Description
 
 Welcome to my portfolio! 
-![1](https://github.com/user-attachments/assets/1262b059-de82-46dc-bfae-681d6768ed8a)
+![1](https://github.com/user-attachments/assets/5737b408-bf74-4ca1-8f25-445fdc40c617)
 
 This project serves as a showcase of my skills and experience in frontend development, with a primary focus on React and modern web technologies.
 
