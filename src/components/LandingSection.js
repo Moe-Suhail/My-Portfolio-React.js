@@ -12,7 +12,7 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#414833"
+    backgroundColor="#1b263b"
     px={{ base: 4, md: 0 }} // Adjust horizontal padding for different screen sizes
   >
     <VStack spacing={{ base: 6, md: 10 }} textAlign="center">

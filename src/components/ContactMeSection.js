@@ -53,7 +53,7 @@ const LandingSection = () => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#656d4a"
+      backgroundColor="#1b263b"
       py={[12, 16]} // Responsive padding on small and large screens
       spacing={8}
     >
@@ -71,7 +71,7 @@ const LandingSection = () => {
           p={6}
           rounded="md"
           w="100%"
-          bg="#a4ac86" // Background color changed to #a4ac86
+          bg="#b9baa3" // Background color changed to #a4ac86
           boxShadow="lg"
           borderWidth="1px"
           borderColor="gray.200"
@@ -89,7 +89,7 @@ const LandingSection = () => {
                   id="firstName"
                   name="firstName"
                   {...formik.getFieldProps("firstName")}
-                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
+                  _focus={{ backgroundColor: "#cfe1b9" }} // Set focus color
                 />
                 <FormErrorMessage>
                   {formik.errors.firstName}
@@ -105,7 +105,7 @@ const LandingSection = () => {
                   name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
-                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
+                  _focus={{ backgroundColor: "#cfe1b9" }} // Set focus color
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
@@ -115,7 +115,7 @@ const LandingSection = () => {
                   id="type"
                   name="type"
                   {...formik.getFieldProps("type")}
-                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
+                  _focus={{ backgroundColor: "#cfe1b9" }} // Set focus color
                 >
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
@@ -134,7 +134,7 @@ const LandingSection = () => {
                   name="comment"
                   height={250}
                   {...formik.getFieldProps("comment")}
-                  _focus={{ backgroundColor: "#656d4a" }} // Set focus color
+                  _focus={{ backgroundColor: "#cfe1b9" }} // Set focus color
                 />
                 <FormErrorMessage>
                   {formik.errors.comment}

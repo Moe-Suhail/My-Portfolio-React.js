@@ -33,7 +33,7 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#a4ac86"
+      backgroundColor="#03071e"
       isDarkBackground
       p={8}
       alignItems="flex-start"
