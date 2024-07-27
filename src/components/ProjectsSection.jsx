@@ -1,6 +1,6 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, VStack } from "@chakra-ui/react";
 import Card from "./Card";
 
 const projects = [
@@ -33,29 +33,31 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#001F3F" // Dark Blue background similar to Landing Section
+      backgroundColor="white" // Dark Blue background similar to Landing Section
       isDarkBackground
       p={8}
-      alignItems="flex-start"
-      spacing={8}
     >
-      <Heading as="h1" id="projects-section" color="#FFFFFF" mb={8}>
-        Featured Projects
-      </Heading>
-      <Box
-        display="grid"
-        gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-        gridGap={8}
-      >
-        {projects.map((project) => (
-          <Card
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.getImageSrc()}
-          />
-        ))}
-      </Box>
+      <VStack alignItems="center" spacing={8} width="100%">
+        <Heading as="h1" id="projects-section" color="black">
+          Featured Projects
+        </Heading>
+        <Box
+          display="grid"
+          gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+          gridGap={8}
+          width="100%"
+          maxWidth="1280px"
+        >
+          {projects.map((project) => (
+            <Card
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.getImageSrc()}
+            />
+          ))}
+        </Box>
+      </VStack>
     </FullScreenSection>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
-import { Avatar, Heading, VStack, Center } from "@chakra-ui/react";
+import { Avatar, Heading, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import FullScreenSection from "./FullScreenSection";
 import avatarImage from "../images/m1.jpg";
+import pexelsImage from "../images/pexels.jpg";
 
 const greeting = "Hello, I am Mohammed!";
 const bio1 = "A web developer ⭐";
@@ -26,7 +27,7 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#011627" // Dark blue background
+    backgroundImage={`url(${pexelsImage})`}
     px={{ base: 4, md: 0 }}
   >
     <VStack spacing={{ base: 6, md: 10 }} textAlign="center">

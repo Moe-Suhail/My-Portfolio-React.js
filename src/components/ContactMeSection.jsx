@@ -52,7 +52,7 @@ const LandingSection = () => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#00274D" // Dark Blue background
+      backgroundColor="lightGray" // Dark Blue background
       py={[12, 16]} // Responsive padding on small and large screens
       spacing={8}
     >
@@ -63,7 +63,7 @@ const LandingSection = () => {
         alignItems="flex-start"
         color="black" // Set text color to black
       >
-        <Heading as="h1" id="contactme-section" size="2xl" mb={8} color="#BDC3C7">
+        <Heading as="h1" id="contactme-section" size="2xl" mb={8} color="black">
           Contact Me
         </Heading>
         <Box
