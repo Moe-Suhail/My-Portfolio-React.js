@@ -33,7 +33,7 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="white" // Dark Blue background similar to Landing Section
+      backgroundColor="#e1e1e1" // Dark Blue background similar to Landing Section
       isDarkBackground
       p={8}
     >
